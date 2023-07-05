@@ -1,13 +1,13 @@
 locals {
   region = var.aws_region
   ecr_defaults = {
-    repository_name = "node-registry"
+    repository_name = "dev-registry"
   }
   ecr = merge(local.ecr_defaults, var.ecr_values)
 
   ecs_defaults = {
-    cluster_name = "node-cluster"
-    service_name = "node-service"
+    cluster_name = "dev-cluster"
+    service_name = "dev-service"
   }
   ecs = merge(local.ecs_defaults, var.ecs_values)
 
@@ -30,7 +30,7 @@ locals {
 
   container_defaults = {
     name  = "application"
-    image = "node.js"
+    image = "dev"
     ports = [80]
   }
   container = merge(local.container_defaults, var.container)
